@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   SHAMBA AI — Design System Tokens (Tailwind CSS v4 Native @theme)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ─── Colors (Material Design 3 — Agricultural palette) ──── */
+  --color-on-secondary-fixed-variant: #005236;
+  --color-on-primary-container: #80bea6;
+  --color-on-tertiary-fixed: #2a1700;
+  --color-background: #f9f9ff;
+  --color-surface-variant: #dce2f3;
+  --color-surface-container-high: #e2e8f8;
+  --color-inverse-on-surface: #ebf1ff;
+  --color-on-surface-variant: #404944;
+  --color-on-tertiary: #ffffff;
+  --color-primary-container: #064e3b;
+  --color-surface-container: #e7eefe;
+  --color-secondary-fixed: #6ffbbe;
+  --color-outline: #707974;
+  --color-tertiary-container: #623c00;
+  --color-on-error-container: #93000a;
+  --color-error-container: #ffdad6;
+  --color-on-surface: #151c27;
+  --color-surface-bright: #f9f9ff;
+  --color-surface-container-highest: #dce2f3;
+  --color-surface: #f9f9ff;
+  --color-tertiary-fixed: #ffddb8;
+  --color-tertiary: #442800;
+  --color-secondary: #006c49;
+  --color-on-primary-fixed: #002117;
+  --color-on-tertiary-fixed-variant: #653e00;
+  --color-secondary-container: #6cf8bb;
+  --color-surface-container-low: #f0f3ff;
+  --color-on-background: #151c27;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary: #003527;
+  --color-surface-dim: #d3daea;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-container: #f69f0d;
+  --color-on-error: #ffffff;
+  --color-surface-tint: #2b6954;
+  --color-on-secondary-fixed: #002113;
+  --color-inverse-surface: #2a313d;
+  --color-primary-fixed-dim: #95d3ba;
+  --color-on-primary: #ffffff;
+  --color-error: #ba1a1a;
+  --color-on-primary-fixed-variant: #0b513d;
+  --color-on-secondary-container: #00714d;
+  --color-tertiary-fixed-dim: #ffb95f;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-primary-fixed: #b0f0d6;
+  --color-outline-variant: #bfc9c3;
+  --color-inverse-primary: #95d3ba;
+
+  /* ─── Spacing ────────────────────────────────────────────── */
+  --spacing-2xl: 48px;
+  --spacing-margin-desktop: 40px;
+  --spacing-gutter: 24px;
+  --spacing-base: 4px;
+  --spacing-lg: 24px;
+  --spacing-xs: 4px;
+  --spacing-margin-mobile: 16px;
+  --spacing-md: 16px;
+  --spacing-xl: 32px;
+  --spacing-sm: 8px;
+
+  /* ─── Border Radius ──────────────────────────────────────── */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+
+  /* ─── Font Families ──────────────────────────────────────── */
+  --font-label-md: "JetBrains Mono", monospace;
+  --font-label-sm: "JetBrains Mono", monospace;
+  --font-headline-lg-mobile: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-headline-md: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+
+  /* ─── Font Sizes (with line-height) ──────────────────────── */
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-lg-mobile: 24px;
+  --text-headline-lg-mobile--line-height: 32px;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Global Styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}
+
+/* Hide scrollbar for clean chat look */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Map Grid Pattern */
+.grid-overlay {
+  background-image: linear-gradient(to right, rgba(112, 121, 116, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(112, 121, 116, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Circular Health Chart Gauges */
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+.circle-bg {
+  fill: none;
+  stroke: #e2e8f8;
+  stroke-width: 3.8;
+}
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease-out;
+}
+
+/* Recharts / Price Chart Gradient */
+.bg-chart-gradient {
+  background: linear-gradient(180deg, rgba(108, 248, 187, 0.2) 0%, rgba(108, 248, 187, 0) 100%);
+}
+
+/* Standard map container size height */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}

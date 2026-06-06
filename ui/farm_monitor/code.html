@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shamba AI - Farm Monitor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-primary-container": "#80bea6",
+                        "on-tertiary-fixed": "#2a1700",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#dce2f3",
+                        "surface-container-high": "#e2e8f8",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-surface-variant": "#404944",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#064e3b",
+                        "surface-container": "#e7eefe",
+                        "secondary-fixed": "#6ffbbe",
+                        "outline": "#707974",
+                        "tertiary-container": "#623c00",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#151c27",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container-highest": "#dce2f3",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed": "#ffddb8",
+                        "tertiary": "#442800",
+                        "secondary": "#006c49",
+                        "on-primary-fixed": "#002117",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "secondary-container": "#6cf8bb",
+                        "surface-container-low": "#f0f3ff",
+                        "on-background": "#151c27",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003527",
+                        "surface-dim": "#d3daea",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#f69f0d",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2b6954",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-surface": "#2a313d",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "on-secondary-container": "#00714d",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#4edea3",
+                        "primary-fixed": "#b0f0d6",
+                        "outline-variant": "#bfc9c3",
+                        "inverse-primary": "#95d3ba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "2xl": "48px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle Map Overlay Pattern */
+        .grid-overlay {
+            background-image: linear-gradient(to right, rgba(112, 121, 116, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(112, 121, 116, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Circular Progress Animation */
+        .circular-chart {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            max-height: 250px;
+        }
+        .circle-bg {
+            fill: none;
+            stroke: #e2e8f8; /* surface-container-high */
+            stroke-width: 3.8;
+        }
+        .circle {
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            animation: progress 1s ease-out forwards;
+        }
+        @keyframes progress {
+            0% { stroke-dasharray: 0 100; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-margin-mobile h-16 bg-background dark:bg-background border-b border-outline-variant shadow-none">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<div class="flex-1 flex justify-center">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
+                Farm Selector
+                <span class="material-symbols-outlined text-[20px]">expand_more</span>
+</h1>
+</div>
+<button class="text-primary font-label-md text-label-md font-bold hover:bg-surface-container-low transition-colors px-3 py-2 rounded-full">
+            Search
+        </button>
+</header>
+<main class="p-margin-mobile flex flex-col gap-lg max-w-lg mx-auto">
+<!-- Satellite Map Mini-Dashboard -->
+<section class="relative w-full h-[240px] rounded-xl overflow-hidden shadow-sm border border-outline-variant">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-resolution satellite top-down view of a modern agricultural farm. The fields are neatly organized into geometric grid patterns, showing varying shades of green, yellow, and brown earth. The lighting simulates clear daylight, emphasizing the structured precision of modern farming. The overall aesthetic feels like a technical, precise data visualization map overlaid on reality, fitting a clean, high-contrast UI design." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWyvpbGvvzLkB2gNodi_DSo_rYaszbOxHX1aIx4VD8LVpKzvoIgKWhsZwLReF2P6McgOb9-etEwXCpxNEqg7p7vjP0PTueJFdYT1caWUjJgMbViv3QzU9E_WzsVzdu6GaB0xwHeT4kfFbv3sz6DHYYowt0KkDfm9_9FojG26lwOZD1Tawc9KNqsuuLDxUXQ_3zJ_tLmRoB0vZ3uY0Snt7FyYUlLV-tOJioKpvpzszVauCEDad4fo1ZSoAuz6yz7xHmZ-wi11T8');">
+</div>
+<div class="absolute inset-0 grid-overlay"></div>
+<!-- Zone Overlays (Simulated) -->
+<div class="absolute top-1/4 left-1/4 w-24 h-24 bg-secondary/20 border border-secondary rounded-lg backdrop-blur-sm flex items-center justify-center rotate-12">
+<span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-2 py-1 rounded-full shadow-md backdrop-blur-md">Healthy</span>
+</div>
+<div class="absolute bottom-1/4 right-1/4 w-32 h-20 bg-tertiary-container/30 border border-tertiary-container rounded-lg backdrop-blur-sm flex items-center justify-center -rotate-6">
+<span class="bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-2 py-1 rounded-full shadow-md backdrop-blur-md">Warning</span>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-3 right-3 flex flex-col gap-2">
+<button class="bg-surface-container-lowest text-on-surface shadow-md p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface shadow-md p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+</div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md text-on-surface px-3 py-1.5 rounded-lg shadow-sm border border-outline-variant/50 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-sm text-label-sm">Live Feed</span>
+</div>
+</section>
+<!-- Main Health Score & NDVI Bento -->
+<div class="grid grid-cols-2 gap-md">
+<!-- Farm Health Score -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50"></div>
+<h2 class="font-label-md text-label-md text-on-surface-variant mb-4 self-start">Health Score</h2>
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="circular-chart text-secondary" viewbox="0 0 36 36">
+<path class="circle-bg" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+<path class="circle" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831" stroke="currentColor" stroke-dasharray="85, 100"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter">85</span>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="font-label-sm text-label-sm">+2% this week</span>
+</div>
+</div>
+<!-- Vegetation Health (NDVI) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+<div>
+<h2 class="font-label-md text-label-md text-on-surface-variant flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px]">forest</span>
+                        NDVI Summary
+                    </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                        Vegetation density is optimal in Sector 4. Stress detected in Sector 2.
+                    </p>
+</div>
+<div class="mt-4">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Index</span>
+<span class="text-primary font-bold">0.72 / 1.0</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex">
+<!-- Simulated gradient bar based on health -->
+<div class="h-full bg-error" style="width: 15%"></div>
+<div class="h-full bg-tertiary-fixed-dim" style="width: 25%"></div>
+<div class="h-full bg-secondary" style="width: 60%"></div>
+</div>
+<div class="flex justify-between font-label-sm text-[10px] text-outline mt-1">
+<span>Low</span>
+<span>High</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Environmental Metrics Grid -->
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-3 px-1 uppercase tracking-wider">Environmental Sensors</h3>
+<div class="grid grid-cols-3 gap-sm">
+<!-- Rainfall -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col justify-between aspect-square hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="text-primary-container bg-primary-container/10 w-8 h-8 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[18px]" data-weight="fill">water_drop</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md text-primary leading-none block">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">mm / 24h</span>
+</div>
+</div>
+<!-- Humidity -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col justify-between aspect-square hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="text-secondary bg-secondary/10 w-8 h-8 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[18px]" data-weight="fill">air</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md text-primary leading-none block">64%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Humidity</span>
+</div>
+</div>
+<!-- Soil Moisture -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col justify-between aspect-square hover:bg-surface-container-low transition-colors cursor-pointer relative overflow-hidden">
+<!-- Warning indicator -->
+<div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div>
+<div class="text-tertiary-container bg-tertiary-container/10 w-8 h-8 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[18px]" data-weight="fill">grass</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md text-tertiary-container leading-none block">28%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Soil Moist</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl border-t-0">
+<!-- Home (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors flex-1 py-2">
+<span class="material-symbols-outlined text-[24px] mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<!-- AI Assistant (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors flex-1 py-2">
+<span class="material-symbols-outlined text-[24px] mb-1">smart_toy</span>
+<span class="font-label-sm text-label-sm">AI Assistant</span>
+</button>
+<!-- Monitor (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95 transition-transform flex-1 mx-1 shadow-sm">
+<span class="material-symbols-outlined text-[24px] mb-1" data-weight="fill">monitoring</span>
+<span class="font-label-sm text-label-sm font-bold">Monitor</span>
+</button>
+<!-- Market (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors flex-1 py-2">
+<span class="material-symbols-outlined text-[24px] mb-1">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</button>
+</nav>
+<!-- Safe area padding for newer mobile devices -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 16px);
+        }
+    </style>
+</body></html>

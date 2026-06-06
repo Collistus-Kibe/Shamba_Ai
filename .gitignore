@@ -1,0 +1,98 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# SHAMBA AI — .gitignore
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─── Environment & Secrets ────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+*.pem
+*.key
+firebase-*.json
+gcp-*.json
+*-service-account.json
+
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ─── Python Testing ──────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+*.cover
+*.log
+
+# ─── FastAPI / Uvicorn ────────────────────────────────────────────────────────
+backend/app/static/uploads/*
+!backend/app/static/uploads/.gitkeep
+
+# ─── SQLite Database Files ────────────────────────────────────────────────────
+*.db
+*.sqlite3
+*.sqlite
+
+# ─── Node / NPM ──────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Frontend Build Output ───────────────────────────────────────────────────
+frontend/dist/
+frontend/.vite/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+logs/
+*.log
+lerna-debug.log*
+
+# ─── OS Files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# ─── IDE / Editor Files ──────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.settings/
+
+# ─── Miscellaneous ───────────────────────────────────────────────────────────
+*.bak
+*.tmp
+*.temp
+*.orig

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shamba AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-primary-container": "#80bea6",
+                      "on-tertiary-fixed": "#2a1700",
+                      "background": "#f9f9ff",
+                      "surface-variant": "#dce2f3",
+                      "surface-container-high": "#e2e8f8",
+                      "inverse-on-surface": "#ebf1ff",
+                      "on-surface-variant": "#404944",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#064e3b",
+                      "surface-container": "#e7eefe",
+                      "secondary-fixed": "#6ffbbe",
+                      "outline": "#707974",
+                      "tertiary-container": "#623c00",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-surface": "#151c27",
+                      "surface-bright": "#f9f9ff",
+                      "surface-container-highest": "#dce2f3",
+                      "surface": "#f9f9ff",
+                      "tertiary-fixed": "#ffddb8",
+                      "tertiary": "#442800",
+                      "secondary": "#006c49",
+                      "on-primary-fixed": "#002117",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-low": "#f0f3ff",
+                      "on-background": "#151c27",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#003527",
+                      "surface-dim": "#d3daea",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#f69f0d",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#2b6954",
+                      "on-secondary-fixed": "#002113",
+                      "inverse-surface": "#2a313d",
+                      "primary-fixed-dim": "#95d3ba",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#0b513d",
+                      "on-secondary-container": "#00714d",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "secondary-fixed-dim": "#4edea3",
+                      "primary-fixed": "#b0f0d6",
+                      "outline-variant": "#bfc9c3",
+                      "inverse-primary": "#95d3ba"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "2xl": "48px",
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased md:hidden overflow-x-hidden pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-margin-mobile h-16 bg-background dark:bg-background border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Farm Selector</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Kijani Estate</span>
+</div>
+</div>
+<button class="hover:bg-surface-container-low transition-colors p-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+</header>
+<main class="px-margin-mobile py-md flex flex-col gap-lg">
+<!-- Hero Section -->
+<section class="flex flex-col gap-sm">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Your AI Farming Partner</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Diagnose crops, monitor farms, predict risks, and maximize profits.</p>
+</section>
+<!-- Hero Card - Farm Health Score -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-md flex justify-between items-center bg-primary-container text-on-primary-container">
+<div>
+<h2 class="font-label-md text-label-md">Farm Health Score</h2>
+<div class="font-display-lg text-display-lg text-secondary-container mt-xs">92%</div>
+</div>
+<div class="w-16 h-16 rounded-full border-4 border-secondary-container flex items-center justify-center relative">
+<span class="material-symbols-outlined text-secondary-container text-[32px]">eco</span>
+<div class="absolute -right-2 -top-2 w-6 h-6 bg-secondary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px] font-bold">arrow_upward</span>
+</div>
+</div>
+</div>
+<div class="p-md bg-surface-container-lowest">
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-1">psychology</span>
+<div>
+<h3 class="font-label-md text-label-md text-primary">AI Recommendation</h3>
+<p class="font-body-md text-body-md text-on-surface mt-xs">Irrigation recommended for Sector B within the next 4 hours to maintain optimal soil moisture.</p>
+<button class="mt-sm bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">Execute Irrigation</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid of Stat Cards -->
+<div class="grid grid-cols-2 gap-sm">
+<!-- Weather Summary -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Weather</span>
+<span class="material-symbols-outlined text-on-tertiary-container">wb_sunny</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary">28°C</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Sunny</div>
+</div>
+</div>
+<!-- Market Summary -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Market</span>
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary">Maize</div>
+<div class="font-body-md text-body-md text-secondary font-semibold flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 5%
+                    </div>
+</div>
+</div>
+<!-- Disease Alerts -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-md shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col gap-sm col-span-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Disease Alerts</span>
+<span class="material-symbols-outlined text-secondary">gpp_good</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="font-headline-md text-headline-md text-primary">0 Active</div>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm">Healthy</span>
+</div>
+</div>
+</div>
+<!-- Recent Activities List -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-md text-headline-md text-primary">Recent Activities</h2>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">water_drop</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Irrigation Completed</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">Sector A • 2h ago</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">query_stats</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Soil Scan Logged</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">Sector C • 5h ago</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl border-t border-outline-variant/20">
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm mt-1">AI Assistant</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-sm text-label-sm mt-1">Monitor</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Market</span>
+</button>
+</nav>
+</body></html>

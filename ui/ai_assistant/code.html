@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shamba AI Assistant</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-primary-container": "#80bea6",
+                    "on-tertiary-fixed": "#2a1700",
+                    "background": "#f9f9ff",
+                    "surface-variant": "#dce2f3",
+                    "surface-container-high": "#e2e8f8",
+                    "inverse-on-surface": "#ebf1ff",
+                    "on-surface-variant": "#404944",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#064e3b",
+                    "surface-container": "#e7eefe",
+                    "secondary-fixed": "#6ffbbe",
+                    "outline": "#707974",
+                    "tertiary-container": "#623c00",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#151c27",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container-highest": "#dce2f3",
+                    "surface": "#f9f9ff",
+                    "tertiary-fixed": "#ffddb8",
+                    "tertiary": "#442800",
+                    "secondary": "#006c49",
+                    "on-primary-fixed": "#002117",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "secondary-container": "#6cf8bb",
+                    "surface-container-low": "#f0f3ff",
+                    "on-background": "#151c27",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#003527",
+                    "surface-dim": "#d3daea",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#f69f0d",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2b6954",
+                    "on-secondary-fixed": "#002113",
+                    "inverse-surface": "#2a313d",
+                    "primary-fixed-dim": "#95d3ba",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#0b513d",
+                    "on-secondary-container": "#00714d",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "secondary-fixed-dim": "#4edea3",
+                    "primary-fixed": "#b0f0d6",
+                    "outline-variant": "#bfc9c3",
+                    "inverse-primary": "#95d3ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "2xl": "48px",
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean chat look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex flex-col h-screen overflow-hidden font-body-md text-body-md">
+<!-- Top App Bar (Adapted for AI Assistant Context) -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-margin-mobile h-16 bg-surface border-b border-outline-variant shadow-sm flex-shrink-0">
+<div class="flex items-center gap-sm">
+<button class="p-2 -ml-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-xs">
+<img alt="Shamba AI Logo" class="w-8 h-8 rounded-md shadow-sm" src="data:image/png;base64,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"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">Shamba AI</span>
+</div>
+</div>
+<div class="flex items-center">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto no-scrollbar p-margin-mobile pb-32 flex flex-col gap-lg bg-surface-container-lowest">
+<!-- Timestamp -->
+<div class="text-center font-label-sm text-label-sm text-outline mt-sm">
+            Today
+        </div>
+<!-- AI Greeting Bubble -->
+<div class="flex items-start gap-sm max-w-[90%]">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container text-on-surface p-md rounded-2xl rounded-tl-none font-body-md text-body-md shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-surface-container-highest leading-relaxed">
+                    Hello! I'm Shamba AI, your Precise Steward. I'm ready to help you optimize your farm's performance today. How can I assist you?
+                </div>
+<!-- Quick Action Chips -->
+<div class="flex flex-wrap gap-sm mt-xs">
+<button class="px-md py-sm rounded-full border border-outline-variant bg-surface text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:border-primary hover:text-primary transition-all flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">psychiatry</span>
+                        Diagnose my crop
+                    </button>
+<button class="px-md py-sm rounded-full border border-outline-variant bg-surface text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:border-primary hover:text-primary transition-all flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">image_search</span>
+                        Analyze plant image
+                    </button>
+<button class="px-md py-sm rounded-full border border-outline-variant bg-surface text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:border-primary hover:text-primary transition-all flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">thunderstorm</span>
+                        Check weather risks
+                    </button>
+<button class="px-md py-sm rounded-full border border-outline-variant bg-surface text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low hover:border-primary hover:text-primary transition-all flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+                        Irrigation advice
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Input Bar -->
+<div class="fixed bottom-[72px] left-0 w-full bg-surface-container-lowest px-margin-mobile py-sm border-t border-surface-variant z-40 pb-safe">
+<div class="flex items-center bg-surface-container-highest rounded-full px-sm py-xs border border-transparent focus-within:bg-surface focus-within:border-primary focus-within:shadow-[0_0_0_4px_rgba(0,53,39,0.1)] transition-all duration-200">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors rounded-full flex-shrink-0">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-outline outline-none px-xs py-sm" placeholder="Message Shamba AI..." type="text"/>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors rounded-full flex-shrink-0" id="mic-btn">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button class="p-sm text-primary hover:bg-surface-container-low rounded-full transition-colors flex-shrink-0 hidden" id="send-btn">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Generated from JSON, active state: AI Assistant) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-xl md:hidden">
+<!-- Inactive: Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Active: AI Assistant -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-95 transition-transform w-20" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-sm text-label-sm">AI Assistant</span>
+</a>
+<!-- Inactive: Monitor -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">monitoring</span>
+<span class="font-label-sm text-label-sm">Monitor</span>
+</a>
+<!-- Inactive: Market -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+</nav>
+<script>
+        // Simple script to toggle mic/send button based on input
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputField = document.querySelector('input[type="text"]');
+            const micBtn = document.getElementById('mic-btn');
+            const sendBtn = document.getElementById('send-btn');
+
+            inputField.addEventListener('input', (e) => {
+                if (e.target.value.trim().length > 0) {
+                    micBtn.classList.add('hidden');
+                    sendBtn.classList.remove('hidden');
+                } else {
+                    micBtn.classList.remove('hidden');
+                    sendBtn.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body></html>
